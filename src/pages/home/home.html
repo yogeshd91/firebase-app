@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Products</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngFor="let data of products">  
+    <ion-card >
+      <ion-card-header>
+        <b>{{data.brand | uppercase}}</b>
+      </ion-card-header>
+      <ion-card-content>
+        Type: {{data.type | uppercase}}<br>
+        Left: {{data.quantity}}<br>
+        Price(RM): {{data.price | number:'2.1-2'}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
