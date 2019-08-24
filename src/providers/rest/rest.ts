@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 
@@ -18,6 +18,42 @@ export class RestProvider {
 	    }, err => {
 	      console.log(err);
 	    });
+	  });
+	}
+
+	createProduct(data) {
+	  return new Promise((resolve, reject) => {
+
+	    this.http.post(this.apiUrl+'/api/v1/products/create', data)
+	      .subscribe(res => {
+	        resolve(res);
+	      }, (err) => {
+	        reject(err);
+	      });
+	  });		
+	}
+
+	deleteProduct(data) {
+	  return new Promise((resolve, reject) => {
+
+	    this.http.post(this.apiUrl+'/api/v1/products/delete', data)
+	      .subscribe(res => {
+	        resolve(res);
+	      }, (err) => {
+	        reject(err);
+	      });
+	  });
+	}
+
+	updateProduct(data) {
+	  return new Promise((resolve, reject) => {
+
+	    this.http.post(this.apiUrl+'/api/v1/products/update', data)
+	      .subscribe(res => {
+	        resolve(res);
+	      }, (err) => {
+	        reject(err);
+	      });
 	  });
 	}
 }

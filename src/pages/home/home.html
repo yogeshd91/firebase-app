@@ -1,19 +1,33 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Products</ion-title>
+    <ion-row>
+      <!-- <ion-col col-2>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-col> -->
+      <ion-col col-10>
+        <ion-title class="home_title">Products</ion-title>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button item-end class="plus_icon" (click)="doCreate()"> 
+          <ion-icon name="md-add"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <div *ngFor="let data of products">  
-    <ion-card >
+    <ion-card>
       <ion-card-header>
         <b>{{data.brand | uppercase}}</b>
+        <button ion-button item-end class="plus_icon margin_top_n10" (click)="doDelete(data)"> 
+          <ion-icon name="md-trash"></ion-icon>
+        </button>
       </ion-card-header>
-      <ion-card-content>
+      <ion-card-content (click)="doUpdate(data)">
         Type: {{data.type | uppercase}}<br>
         Left: {{data.quantity}}<br>
         Price(RM): {{data.price | number:'2.1-2'}}

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Update Product</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>  
+    <ion-item>
+      <ion-label float>Brand</ion-label>
+      <ion-input type="text" readonly="true" class="grey_font" [(ngModel)]="update_data.brand"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label float>Type</ion-label>
+      <ion-input type="text" readonly="true" class="grey_font" [(ngModel)]="update_data.type"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label float>Quantity</ion-label>
+      <ion-input type="number" [(ngModel)]="update_data.quantity"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label float>Price(RM)</ion-label>
+      <ion-input type="number" [(ngModel)]="update_data.price"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block outline (click)="doUpdate()">Update</button>
+
+</ion-content>
